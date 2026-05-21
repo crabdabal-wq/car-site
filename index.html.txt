@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Подбор автомобилей</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            margin: 50px auto;
+            width: 300px;
+            border-radius: 10px;
+        }
+        select, button {
+            padding: 10px;
+            margin-top: 10px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Подбор автомобиля</h2>
+
+    <label>Бюджет:</label>
+    <select id="budget">
+        <option value="low">До 10 000€</option>
+        <option value="mid">10 000–30 000€</option>
+        <option value="high">30 000€+</option>
+    </select>
+
+    <label>Тип:</label>
+    <select id="type">
+        <option value="city">Город</option>
+        <option value="family">Семья</option>
+        <option value="sport">Спорт</option>
+    </select>
+
+    <button onclick="pickCar()">Подобрать</button>
+
+    <p id="result"></p>
+</div>
+
+<script>
+function pickCar() {
+    const budget = document.getElementById("budget").value;
+    const type = document.getElementById("type").value;
+    let car = "";
+
+    if (budget === "low" && type === "city") car = "Volkswagen Golf";
+    else if (budget === "mid" && type === "family") car = "Toyota Camry";
+    else if (budget === "high" && type === "sport") car = "BMW M4";
+    else car = "Skoda Octavia";
+
+    document.getElementById("result").innerText = "Рекомендуем: " + car;
+}
+</script>
+
+</body>
+</html>
